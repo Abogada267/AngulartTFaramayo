@@ -1,15 +1,29 @@
+// Import Angular modules
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+// Import Angular material modules
+import { MatNativeDateModule } from '@angular/material/core';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { RouterOutlet } from '@angular/router';
+
+// Import Angular routing and components
+import { LOCALE_ID } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+
+// Import locale data
 import { registerLocaleData } from '@angular/common';
 import es from '@angular/common/locales/es';
 import esAR from '@angular/common/locales/es-AR';
-import { LOCALE_ID, NgModule } from '@angular/core';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+
+// Import custom injection tokens
 import { MY_USER_TOKEN } from './core/injection-tokens';
-import { DashboardModule } from './layouts/dashboard/dashboard.module';
+
 
 registerLocaleData(es);
 registerLocaleData(esAR);
@@ -20,9 +34,12 @@ registerLocaleData(esAR);
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    DashboardModule,
     MatProgressSpinnerModule,
-  ],
+    MatNativeDateModule,
+    RouterOutlet,
+    FormsModule,
+   
+      ],
   providers: [
     {
       provide: LOCALE_ID,

@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { LoadingService } from '../../../../core/services/loading.service';
-import { UsersService } from '../../../../core/services/users.service';
 import { User } from './models';
+import { UsersService } from './users.service';
+
+
+
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrl: './users.component.scss',
+  styleUrls: ['./users.component.scss'], 
 })
 export class UsersComponent implements OnInit {
   displayedColumns: string[] = ['id', 'fullName', 'email', 'role', 'actions'];
@@ -15,8 +19,11 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private usersService: UsersService,
-    private loadingService: LoadingService
-  ) {}
+    private loadingService: LoadingService,
+    private route: ActivatedRoute,
+  ) {
+    console.log(this.route.snapshot.queryParams);
+  }
 
   ngOnInit(): void {
     this.getPageData();
@@ -24,7 +31,6 @@ export class UsersComponent implements OnInit {
 
   getPageData(): void {
     this.loadingService.setIsLoading(true);
-
     forkJoin([
       this.usersService.getRoles(),
       this.usersService.getUsers(),

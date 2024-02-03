@@ -14,9 +14,7 @@ export class FullNamePipe implements PipeTransform {
     mode?: 'uppercase' | 'lowercase',
     ...args: unknown[]
   ): unknown {
-    /**
-     * ...args: unknown[] SIGNIFICA LITERALMENTE TODOS LOS ARGUMENTOS QUE VENGAN DESPUES DEL ANTERIOR
-     */
+  
 
     console.log(args);
     const result = value.lastName + ' ' + value.firstName;

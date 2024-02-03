@@ -1,0 +1,19 @@
+<p>Capacitacion Juridica Malvina Aramayo</p>
+<h3>Cursos de Capacitación</h3>
+<div>
+<input [(ngModel)]="homeName" placeholder="nombre" />
+</div>
+<h2>{{ homeName | uppercase }} Detalles</h2>
+<div class="grid grid-pad">
+    <a *ngFor="let course of courses" class="col-1-4">
+        <div class="module hero">
+            <h4>{{ course.name }}</h4>
+        </div>
+    </a>
+</div>
+<h2>{{ courses[0]?.name }} Detalles</h2>
+<div><span>id: </span>{{ courses[0]?.id }}</div>
+<div><span>nombre: </span>{{ courses[0]?.name }}</div>
+<div>
+    <img class="w-6" src="../../../../../assets/image/estudio.jpg" alt="" />
+</div>
