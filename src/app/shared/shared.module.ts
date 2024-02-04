@@ -9,15 +9,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
-import { HomeComponent } from '../layouts/dashboard/pages/Home/home.component';
 import { FullNamePipe } from './full-name.pipe';
 import { RepetirDirective } from './repetir.directive';
 import { ResaltadoDirective } from './resaltado.directive';
 
 @NgModule({
-  declarations: [FullNamePipe, ResaltadoDirective,RepetirDirective,HomeComponent,
- 
-  ],
+  declarations: [FullNamePipe, ResaltadoDirective, RepetirDirective, ], 
   imports: [CommonModule],
   exports: [
     FullNamePipe,
@@ -32,7 +29,6 @@ import { ResaltadoDirective } from './resaltado.directive';
     MatInputModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    HomeComponent,
     
   ],
 })

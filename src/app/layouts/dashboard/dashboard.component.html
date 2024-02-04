@@ -4,13 +4,10 @@
   <!-- SIDEBAR -->
   <mat-drawer #drawer class="dashboard-sidebar" mode="side">
     <mat-nav-list>
-      <a #homeLink="routerLinkActive" routerLinkActive [activated]="homeLink.isActive" routerLink="home"
-        mat-list-item>Inicio</a>
-      <a #usersLink="routerLinkActive" routerLinkActive [activated]="usersLink.isActive" routerLink="users"
-        mat-list-item>Usuarios</a>
-      <a #productsLink="routerLinkActive" routerLinkActive [activated]="productsLink.isActive" routerLink="products"
-        mat-list-item>Productos</a>
-      <a (click)="logout()" mat-list-item>Cerrar sesion</a>
+      <a routerLink="/home" routerLinkActive="active" mat-list-item>Inicio</a>
+      <a routerLink="/users" routerLinkActive="active" mat-list-item>Usuarios</a>
+      <a routerLink="/products" routerLinkActive="active" mat-list-item>Productos</a>
+      <a (click)="logout()" mat-list-item>Cerrar sesión</a>
     </mat-nav-list>
   </mat-drawer>
   <!-- SIDEBAR -->
@@ -40,7 +37,7 @@
     <!-- TOOLBAR -->
     <!-- TOOLBAR -->
     <div class="p-3">
-  <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
       <!-- <app-rxjs-introduccion></app-rxjs-introduccion> -->
       <!-- <app-rxjs-example></app-rxjs-example> -->
       <!-- <app-pipes></app-pipes> -->

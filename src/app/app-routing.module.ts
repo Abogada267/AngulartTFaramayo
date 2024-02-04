@@ -8,12 +8,10 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    loadChildren: () => 
-      import('./layouts/dashboard/dashboard.module').then(
-      (m) => m.DashboardModule
-    ),
-    },
-    {
+    loadChildren: () =>
+      import('../app/layouts/dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
+  {
     path: 'auth/login',
     component: LoginComponent,
   },
@@ -22,9 +20,9 @@ const routes: Routes = [
     component: NotFoundComponent,
   },
   {
-   path: '**',
-   redirectTo: '/auth/login',
-  }
+    path: '**',
+    redirectTo: '/dashboard',
+  },
 ];
 
 @NgModule({
@@ -32,5 +30,3 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-
-

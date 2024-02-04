@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from "./app-routing.module";
 
 
 // Import Angular material modules
@@ -13,7 +14,6 @@ import { RouterOutlet } from '@angular/router';
 
 // Import Angular routing and components
 import { LOCALE_ID } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // Import locale data
@@ -24,6 +24,9 @@ import esAR from '@angular/common/locales/es-AR';
 // Import custom injection tokens
 import { MY_USER_TOKEN } from './core/injection-tokens';
 
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 
 registerLocaleData(es);
 registerLocaleData(esAR);
@@ -31,13 +34,20 @@ registerLocaleData(esAR);
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
+    
+  FormsModule,
+   BrowserModule,
     BrowserAnimationsModule,
+    AppRoutingModule,
+   MatNativeDateModule,
     MatProgressSpinnerModule,
-    MatNativeDateModule,
-    RouterOutlet,
-    FormsModule,
+    RouterModule,
+    FormsModule,ReactiveFormsModule,
+  
+  
+  RouterOutlet,
+    
+ 
    
       ],
   providers: [

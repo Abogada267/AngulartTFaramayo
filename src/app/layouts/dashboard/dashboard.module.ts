@@ -6,8 +6,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
+
 import { adminGuard } from '../../core/guards/admin.guard';
-import { DashboardComponent } from '../dashboard/dashboard.component';
+import { SharedModule } from '../../shared/shared.module';
 import { HomeComponent } from './pages/Home/home.component';
 import { CategoriesModule } from './pages/categories/categories.module';
 import { RxjsExampleModule } from './pages/rxjs-example/rxjs-example.module';
@@ -15,20 +16,19 @@ import { RxjsIntroduccionModule } from './pages/rxjs-introduccion/rxjs-introducc
 import { UsersModule } from './pages/users/users.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [HomeComponent],
   imports: [
     CommonModule,
-    MatSidenavModule,
     MatButtonModule,
-    MatToolbarModule,
     MatIconModule,
-    UsersModule,
-    CategoriesModule,
     MatListModule,
-    RouterModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    SharedModule,
+    CategoriesModule,
     RxjsExampleModule,
     RxjsIntroduccionModule,
-
+    UsersModule,
     RouterModule.forChild([
       {
         path: 'home',
@@ -37,18 +37,16 @@ import { UsersModule } from './pages/users/users.module';
       {
         path: 'users',
         canActivate: [adminGuard],
-        loadChildren: () =>
-          import("./pages/users/users.module").then((m) => m.UsersModule),
+        loadChildren: () => import('./pages/users/users.module').then((m) => m.UsersModule),
       },
       {
         path: 'products',
-        loadChildren: () =>
-          import("./pages/products/products.module").then((m) => m.ProductsModule),
+        loadChildren: () => import('./pages/products/products.module').then((m) => m.ProductsModule),
       },
       {
         path: 'user/:id',
         loadChildren: () =>
-          import("./pages/users/user-detail/user-detail.module").then((m) => m.UserDetailModule),
+          import('./pages/users/user-detail/user-detail.module').then((m) => m.UserDetailModule),
       },
       {
         path: '**',
@@ -56,7 +54,6 @@ import { UsersModule } from './pages/users/users.module';
       },
     ]),
   ],
-  exports: [DashboardComponent],
 })
 export class DashboardModule {}
 
