@@ -4,12 +4,14 @@ import { LoginComponent } from './layouts/auth/pages/login/login.component';
 import { DashboardComponent } from './layouts/dashboard/dashboard.component';
 import { NotFoundComponent } from './layouts/not-found/not-found.component';
 
+
 const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
     loadChildren: () =>
-      import('../app/layouts/dashboard/dashboard.module').then((m) => m.DashboardModule),
+      import('../app/layouts/dashboard/dashboard.module').then((m) => m.DashboardModule
+      ),
   },
   {
     path: 'auth/login',
@@ -21,7 +23,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '/dashboard',
+    redirectTo: '/auth/login',
   },
 ];
 

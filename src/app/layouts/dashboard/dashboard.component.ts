@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -9,10 +8,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DashboardComponent {
   showFiller = false;
+  usersLink = {
+    isActive: false,
+  };
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 
-  logout(): void {    localStorage.removeItem('access-token');
+  logout(): void {
+    localStorage.removeItem('access-token');
     this.router.navigate(['auth', 'login'], {
       queryParams: {
         hola: 'mundo',

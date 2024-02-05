@@ -1,18 +1,20 @@
 <p>Capacitacion Juridica Malvina Aramayo</p>
-<h2>Cursos Detalles</h2>
+<h2>Cursos Detalle</h2>
 <div>
-
-</div>
-<div class="grid grid-pad">
-    <a *ngFor="let course of courses" class="col-1-4">
+<mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let curso of cursos" class="col-1-4">
         <div class="module hero">
-            <h4>{{ course.name }}</h4>
+            <h4>{{ curso.name }}</h4>
+            <!-- Otro contenido del módulo aquí -->
         </div>
-    </a>
-</div>
-<h3>{{ courses[0]?.name }} Detalles</h3>
-<div><span>id: </span>{{ courses[0]?.id }}</div>
-<div><span>nombre: </span>{{ courses[0]?.name }}</div>
-<div>
-    <img class="w-6" src="../../../../../assets/image/estudio.jpg" alt="imagEN DEL ESTUDIO" />
+    </mat-grid-tile>
+</mat-grid-list>
+
+<h3>{{ selectedCurso?.name }} Detalles</h3>
+<div *ngIf="selectedCurso">
+    <div><span>id: </span>{{ selectedCurso.id }}</div>
+    <div><span>nombre: </span>{{ selectedCurso.name }}</div>
+    <div>
+        <img class="w-6" src="../../../../../assets/image/estudio.jpg" alt="imagen DEL ESTUDIO" />
+    </div>
 </div>

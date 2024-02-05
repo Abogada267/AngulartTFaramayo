@@ -10,7 +10,7 @@ import { ProductsService } from './products.service';
   styleUrl: './products.component.scss',
 })
 export class ProductsComponent {
-  displayedColumns = ['id', 'productName', 'createdAt', 'actions'];
+  displayedColumns = ['id', 'name', 'createdAt', 'actions'];
 
   products: Product[] = [];
 

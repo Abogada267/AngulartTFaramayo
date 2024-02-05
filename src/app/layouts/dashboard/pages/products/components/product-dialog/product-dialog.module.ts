@@ -1,29 +1,28 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatDatepicker, MatDatepickerToggle } from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ProductDialogComponent } from './product-dialog.component';
 
-
 @NgModule({
   declarations: [
- ProductDialogComponent
+    ProductDialogComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
-    MatDatepicker,
-    MatDatepickerToggle,
-    MatNativeDateModule, MatInputModule,
     ReactiveFormsModule,
-    
-    
-    
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
-  exports: [
-    
+  providers: [
+    JsonPipe,
   ],
 })
 export class ProductDialogModule {}
+
