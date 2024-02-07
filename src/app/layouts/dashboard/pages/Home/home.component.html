@@ -1,20 +1,76 @@
-<p>Capacitacion Juridica Malvina Aramayo</p>
-<h2>Cursos Detalle</h2>
-<div>
-<mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile *ngFor="let curso of cursos" class="col-1-4">
-        <div class="module hero">
-            <h4>{{ curso.name }}</h4>
-            <!-- Otro contenido del módulo aquí -->
-        </div>
-    </mat-grid-tile>
-</mat-grid-list>
+<!DOCTYPE html>
+<html lang="es">
 
-<h3>{{ selectedCurso?.name }} Detalles</h3>
-<div *ngIf="selectedCurso">
-    <div><span>id: </span>{{ selectedCurso.id }}</div>
-    <div><span>nombre: </span>{{ selectedCurso.name }}</div>
-    <div>
-        <img class="w-6" src="../../../../../assets/image/estudio.jpg" alt="imagen DEL ESTUDIO" />
-    </div>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@angular/material/prebuilt-themes/indigo-pink.css">
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .example-card {
+            width: 300px;
+            /* Ajusta el ancho según tus necesidades */
+        }
+
+        .example-card img {
+            width: 100%;
+            height: 150px;
+            /* Ajusta la altura de la imagen según tus necesidades */
+            object-fit: cover;
+        }
+
+        .card-description {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <mat-card class="example-card">
+        <img src="https://quees.mobi/wp-content/uploads/2019/12/derecho-procesal-penal.jpg" alt="Descripción de la imagen">
+        <div class="card-description">
+            <p>Derecho Penal</p>
+            <br>
+            <p>Juicios por Jurados</p>
+        </div>
+    </mat-card>
+
+    <mat-card class="example-card">
+        <img src="https://www.gestionesjuridicas.com/wp-content/uploads/2020/03/11.jpg" alt="Descripción de la imagen">
+        <div class="card-description">
+            <p>Derecho de Familia</p>
+            <br>
+            <p>Cálculo de cuota de alimentos</p>
+        </div>
+    </mat-card>
+
+    <mat-card class="example-card">
+        <img src="https://panamaosa.com/wp-content/uploads/2019/02/laboral.jpeg" alt="Descripción de la imagen">
+        <div class="card-description">
+            <p>Derecho Laboral</p>
+            <br>
+            <p>Confeccion de Demanda</p>
+        </div>
+    </mat-card>
+    <mat-card class="example-card">
+        <img src="https://www.estudiojuridicodiz.com.ar/wp-content/uploads/2016/06/20180911164733-testamento-1024x682-1.jpeg" alt="Descripción de la imagen">
+        <div class="card-description">
+            <p>Sucesiones</p>
+            <br>
+            <p>Pasos a seguir con nuestro primer cliente</p>
+        </div>
+    </mat-card>
+    <!-- Agrega más tarjetas según sea necesario -->
+</body>
+
+</html>

@@ -13,8 +13,9 @@ export class ProductDialogComponent implements OnInit {
   productForm: FormGroup;
   @ViewChild('picker') datepicker: MatDatepicker<Date> | undefined;
 
-  // Nueva propiedad para almacenar la cadena JSON
+  
   productFormJson: string | undefined;
+product: any;
 
   constructor(
     private dialogRef: MatDialogRef<ProductDialogComponent>,
@@ -26,7 +27,7 @@ export class ProductDialogComponent implements OnInit {
       createdAt: [''],
     });
 
-    // Convertir el objeto a cadena JSON y asignarlo a la propiedad
+    
     this.productFormJson = JSON.stringify(this.productForm.value, null, 2);
   }
 

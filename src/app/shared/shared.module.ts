@@ -29,7 +29,7 @@ import { ResaltadoDirective } from './resaltado.directive';
     MatInputModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    
+        
   ],
 })
 export class SharedModule {}
