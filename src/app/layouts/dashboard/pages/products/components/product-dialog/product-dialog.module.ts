@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatDatepicker } from '@angular/material/datepicker';
+import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProductDialogComponent } from './product-dialog.component';
@@ -10,6 +10,8 @@ import { ProductDialogComponent } from './product-dialog.component';
   declarations: [ProductDialogComponent],
   imports: [CommonModule, MatDialogModule, ReactiveFormsModule, MatFormFieldModule,
     MatDatepicker,
+    MatDatepickerModule,
+   MatDialogModule,
   ],
   exports: [ProductDialogComponent],
 })
