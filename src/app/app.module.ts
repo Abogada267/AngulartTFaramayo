@@ -3,22 +3,21 @@ import es from '@angular/common/locales/es';
 import esAR from '@angular/common/locales/es-AR';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButton } from '@angular/material/button';
-import { MatCard, MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatDatepicker } from '@angular/material/datepicker';
+import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS, MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { RouterModule, RouterOutlet } from '@angular/router';
-import { AppRoutingModule } from "./app-routing.module";
+import { RouterOutlet } from '@angular/router';
+import { ProductDialogModule } from "../app/layouts/dashboard/pages/products/components/product-dialog/product-dialog.component";
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MY_USER_TOKEN } from './core/injection-tokens';
-
+import { SharedModule } from "./shared/shared.module";
 
 registerLocaleData(es);
 registerLocaleData(esAR);
@@ -26,31 +25,26 @@ registerLocaleData(esAR);
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
-   BrowserModule,
-    AppRoutingModule,BrowserAnimationsModule,
-    MatNativeDateModule,
-    MatProgressSpinnerModule,
-    RouterModule,
-    FormsModule,
-    MatProgressSpinnerModule,
-    CommonModule,
     ReactiveFormsModule,
+    CommonModule,
     MatCardModule,
-    MatButton,
-    MatDatepicker,
-    MatCard,
+    MatButtonModule,
+    MatDatepickerModule,
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
-    MatIconModule,
-  
-  
-  RouterOutlet,
-    
- 
-   
-      ],
+    MatProgressSpinnerModule,
+    RouterOutlet,
+    AppRoutingModule,
+    MatFormFieldModule,
+    SharedModule,
+    MatDatepicker,
+    ProductDialogModule,
+
+  ],
   providers: [
     {
       provide: LOCALE_ID,
@@ -70,8 +64,8 @@ registerLocaleData(esAR);
       provide: 'API_URL',
       useValue: 'http://localhost:5000/',
     },
-    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+

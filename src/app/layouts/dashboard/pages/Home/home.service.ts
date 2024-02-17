@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { delay, finalize, of } from 'rxjs';
 import { LoadingService } from '../../../../core/services/loading.service';
+import { Product } from '../products/models';
 import { Home } from './models';
 
 let home: Home [] = [

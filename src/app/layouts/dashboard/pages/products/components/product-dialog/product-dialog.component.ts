@@ -1,32 +1,28 @@
-import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog'; // Añadido MatDialogRef
-import { Product } from '../../models';
+import { CommonModule } from '@angular/common';
+import { Component, NgModule } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-product-dialog',
   templateUrl: './product-dialog.component.html',
-  styleUrls: ['./product-dialog.component.scss'], // Corregido "styleUrl" a "styleUrls"
+  styleUrls: ['./product-dialog.component.scss']
 })
 export class ProductDialogComponent {
+  [key: string]: any;
   productForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private dialogRef: MatDialogRef<ProductDialogComponent>, 
-    @Inject(MAT_DIALOG_DATA) private editingProduct?: Product
-  ) {
+  constructor(private fb: FormBuilder) {
     this.productForm = this.fb.group({
-      name: this.fb.control(''),
-      createdAt: this.fb.control(''),
+      name: [''],
+      createdAt: ['']
     });
-
-    if (editingProduct) {
-      this.productForm.patchValue(editingProduct);
-    }
-  }
-
-  onSave(): void {
-    this.dialogRef.close(this.productForm.value);
   }
 }
+
+@NgModule({
+  declarations: [ProductDialogComponent],
+  imports: [CommonModule, MatDialogModule, ReactiveFormsModule, MatFormFieldModule],
+})
+export class ProductDialogModule {}

@@ -10,7 +10,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatTableDataSource, MatTableModule } from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
@@ -32,7 +32,8 @@ import { ProductsComponent } from './products.component';
     MatMomentDateModule,
     ProductsRoutingModule,
     MatTableModule,
-    MatTableDataSource,
+    MatFormFieldModule,
+    
   ],
 })
 export class ProductsModule {}

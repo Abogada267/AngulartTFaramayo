@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCard, MatCardModule } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -29,8 +29,8 @@ import { ResaltadoDirective } from './resaltado.directive';
     MatInputModule,
     ReactiveFormsModule,
     MatDatepickerModule,
-    MatCard,
     MatCardModule,
+    MatFormFieldModule,
         
   ],
 })
