@@ -37,8 +37,9 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/primeflex/primeflex.min.css",
+              
               "src/styles.scss"
+              
             ],
             "scripts": []
           },

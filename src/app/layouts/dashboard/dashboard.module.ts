@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCard } from '@angular/material/card';
+import { MatCard, MatCardModule } from '@angular/material/card';
+import { MatDatepicker } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -41,8 +42,11 @@ import { UsersModule } from './pages/users/users.module';
     MatFormFieldModule,
     MatInputModule,
     MatCard,
-    
-    
+    MatDatepicker,
+    MatCardModule,
+    MatIcon,
+
+        
      RouterModule.forChild([
       {
         path: 'home',
@@ -54,15 +58,15 @@ import { UsersModule } from './pages/users/users.module';
       },
       {
         path: 'products',
-        loadChildren: () => import('./pages/products/products.module').then((m) => m.ProductsModule),
+        loadChildren: () =>
+        import('./pages/products/products.module').then((m) => m.ProductsModule),
       },
       {
         path: 'user/:id',
         component:UserDetailComponent,
       },
       {
-        path: '**',
-        redirectTo: 'home',
+         
       },
     ]),
   ],

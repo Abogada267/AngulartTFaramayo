@@ -1,11 +1,10 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use "@angular/material" as mat;
-
+@use '@angular/material' as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
-// have to load a single css file for Angular Material in your app.
+// have to load a single CSS file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
@@ -23,8 +22,7 @@ $pf-baez-warn: mat.define-palette(mat.$red-palette);
 $pf-baez-theme: mat.define-light-theme((color: (primary: $pf-baez-primary,
         accent: $pf-baez-accent,
         warn: $pf-baez-warn,
-      ),
-    ));
+      )));
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -36,9 +34,6 @@ $pf-baez-theme: mat.define-light-theme((color: (primary: $pf-baez-primary,
 html,
 body {
   height: 100%;
-}
-
-body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }

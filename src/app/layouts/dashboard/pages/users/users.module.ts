@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCard, MatCardModule } from '@angular/material/card';
+import { MatDatepicker } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -25,6 +27,9 @@ import { UsersService } from './users.service';
     MatIconModule,
     ReactiveFormsModule,
     RouterModule,
+    MatDatepicker,
+    MatCard,
+    MatCardModule,
   ],
   exports: [UsersComponent],
   providers: [

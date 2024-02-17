@@ -17,6 +17,7 @@ const routes: Routes = [
     path: 'auth/login',
     component: LoginComponent,
   },
+ 
   {
     path: '404',
     component: NotFoundComponent,

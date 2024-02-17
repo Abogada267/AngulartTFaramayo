@@ -7,63 +7,80 @@ import { ProductsService } from './products.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrl: './products.component.scss',
+  styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent {
   displayedColumns = ['id', 'name', 'createdAt', 'actions'];
-
   products: Product[] = [];
 
   constructor(
     private productsService: ProductsService,
     public dialog: MatDialog
   ) {
+    this.loadProducts();
+  }
+
+  private loadProducts(): void {
     this.productsService.getProducts().subscribe({
       next: (products) => {
         this.products = products;
       },
+      error: (error) => {
+        console.error('Error loading products:', error);
+      },
     });
   }
 
-  onCreate(): void {
-    this.dialog
-      .open(ProductDialogComponent)
-      .afterClosed()
-      .subscribe({
-        next: (result) => {
-          if (result) {
-            this.productsService.createProduct(result).subscribe({
-              next: (products: Product[]) => (this.products = products),
-            });
-          }
-        },
-      });
+  private async openProductDialog(product?: Product): Promise<void> {
+    const dialogRef = this.dialog.open(ProductDialogComponent, {
+      data: product,
+    });
+
+    const result = await dialogRef.afterClosed().toPromise();
+
+    if (result) {
+      return result;
+    }
   }
 
-  onEdit(product: Product) {
-    this.dialog
-      .open(ProductDialogComponent, {
-        data: product,
-      })
-      .afterClosed()
-      .subscribe({
-        next: (result) => {
-          if (result) {
-            this.productsService
-              .updateProductById(product.id, result)
-              .subscribe({
-                next: (products: Product[]) => (this.products = products),
-              });
-          }
+  async onCreate(): Promise<void> {
+    const result = await this.openProductDialog();
+
+    if (result) {
+      this.productsService.createProduct(result).subscribe({
+        next: (products: Product[]) => {
+          this.products = products;
+        },
+        error: (error) => {
+          console.error('Error creating product:', error);
         },
       });
+    }
   }
 
-  onDelete(id: number) {
-    if (confirm('Esta seguro?')) {
+  async onEdit(product: Product): Promise<void> {
+    const result = await this.openProductDialog(product);
+
+    if (result) {
+      this.productsService.updateProductById(product.id, result).subscribe({
+        next: (products: Product[]) => {
+          this.products = products;
+        },
+        error: (error) => {
+          console.error('Error updating product:', error);
+        },
+      });
+    }
+  }
+
+  onDelete(id: number): void {
+    if (confirm('¿Está seguro?')) {
       this.productsService.deleteProductById(id).subscribe({
         next: (products) => {
           this.products = products;
+        },
+        error: (error) => {
+          console.error('Error deleting product:', error);
         },
       });
     }

@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@angular/material/prebuilt-themes/indigo-pink.css">
+
     <style>
         body {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            justify-content: center;
+            display: flex;
+            justify-content: space-around;
             align-items: center;
             height: 100vh;
             margin: 0;
@@ -18,13 +17,14 @@
 
         .example-card {
             width: 300px;
-            /* Ajusta el ancho según tus necesidades */
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
 
         .example-card img {
-            width: 100%;
-            height: 150px;
-            /* Ajusta la altura de la imagen según tus necesidades */
+            width: 80%;
+            height: 100px;
             object-fit: cover;
         }
 
@@ -32,45 +32,75 @@
             padding: 10px;
             text-align: center;
         }
+
+        .button-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: auto;
+        }
+
+        .inscribirme-button {
+            background-color: blue;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
-    <mat-card class="example-card">
-        <img src="https://quees.mobi/wp-content/uploads/2019/12/derecho-procesal-penal.jpg" alt="Descripción de la imagen">
+    <button mat-button (click)="onCreate()">Agregar</button>
+<mat-card class="example-card">
+<img src="https://quees.mobi/wp-content/uploads/2019/12/derecho-procesal-penal.jpg"
+            alt="Imagen de Derecho Penal">
         <div class="card-description">
             <p>Derecho Penal</p>
             <br>
             <p>Juicios por Jurados</p>
         </div>
+        <div class="button-container">
+            <button class="inscribirme-button" (click)="navegarAotraPagina()">Inscribirme</button>
+        </div>
     </mat-card>
 
     <mat-card class="example-card">
-        <img src="https://www.gestionesjuridicas.com/wp-content/uploads/2020/03/11.jpg" alt="Descripción de la imagen">
+        <img src="https://www.gestionesjuridicas.com/wp-content/uploads/2020/03/11.jpg"
+            alt="Imagen de Derecho de Familia">
         <div class="card-description">
             <p>Derecho de Familia</p>
             <br>
             <p>Cálculo de cuota de alimentos</p>
         </div>
+        <div class="button-container">
+            <button class="inscribirme-button" (click)="navegarAotraPagina()">Inscribirme</button>
+        </div>
     </mat-card>
 
     <mat-card class="example-card">
-        <img src="https://panamaosa.com/wp-content/uploads/2019/02/laboral.jpeg" alt="Descripción de la imagen">
+        <img src="https://panamaosa.com/wp-content/uploads/2019/02/laboral.jpeg" alt="Imagen de Derecho Laboral">
         <div class="card-description">
             <p>Derecho Laboral</p>
             <br>
-            <p>Confeccion de Demanda</p>
+            <p>Confección de Demanda</p>
+        </div>
+        <div class="button-container">
+            <button class="inscribirme-button" (click)="navegarAotraPagina()">Inscribirme</button>
         </div>
     </mat-card>
+
     <mat-card class="example-card">
-        <img src="https://www.estudiojuridicodiz.com.ar/wp-content/uploads/2016/06/20180911164733-testamento-1024x682-1.jpeg" alt="Descripción de la imagen">
+        <img src="https://www.estudiojuridicodiz.com.ar/wp-content/uploads/2016/06/20180911164733-testamento-1024x682-1.jpeg"
+            alt="Imagen de Sucesiones">
         <div class="card-description">
             <p>Sucesiones</p>
             <br>
             <p>Pasos a seguir con nuestro primer cliente</p>
         </div>
+        <div class="button-container">
+            <button class="inscribirme-button" (click)="navegarAotraPagina()">Inscribirme</button>
+        </div>
     </mat-card>
-    <!-- Agrega más tarjetas según sea necesario -->
 </body>
 
 </html>
