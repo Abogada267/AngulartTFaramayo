@@ -14,6 +14,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
+import { ProductsService } from './products.service'; // Import your service
 
 @NgModule({
   declarations: [ProductsComponent],
@@ -33,8 +34,11 @@ import { ProductsComponent } from './products.component';
     ProductsRoutingModule,
     MatTableModule,
     MatFormFieldModule,
-    
+  ],
+  providers: [
+    ProductsService, 
   ],
 })
 export class ProductsModule {}
+
 

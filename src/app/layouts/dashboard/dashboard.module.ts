@@ -41,7 +41,7 @@ import { UsersModule } from './pages/users/users.module';
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-    MatCard,
+   MatCard,
     MatDatepicker,
     MatCardModule,
     MatIcon,
@@ -57,10 +57,13 @@ import { UsersModule } from './pages/users/users.module';
         component: UsersComponent,
       },
       {
+       // /dashboard/products
         path: 'products',
         loadChildren: () =>
-        import('./pages/products/products.module').then((m) => m.ProductsModule),
-      },
+          import ('./pages/products/products.module').then(
+            (m) => m.ProductsModule
+          ),
+          },
       {
         path: 'user/:id',
         component:UserDetailComponent,

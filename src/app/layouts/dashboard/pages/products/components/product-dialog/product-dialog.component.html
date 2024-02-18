@@ -1,5 +1,5 @@
-<!-- Corregido: Utiliza 'formGroupName' en lugar de 'formGroup' y 'matInput' en lugar de 'input' -->
-<form [formGroup]="['productForm']" class="grid formgrid">
+<!-- Corregido: Utiliza 'formGroup' sin corchetes y 'values' debería ser 'value' -->
+<form [formGroup]="productForm" class="grid formgrid">
     <div class="col-12">
         <mat-form-field class="w-full">
             <mat-label>Nombre</mat-label>
@@ -8,13 +8,13 @@
     </div>
     <div class="col-12">
         <mat-form-field class="w-full">
-            <mat-label>Fecha de creación</mat-label>
-            <input formControlName="createdAt" matInput [matDatepicker]="fechaCreacionPicker" />
-            <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle matIconSuffix [for]="fechaCreacionPicker"></mat-datepicker-toggle>
-            <mat-datepicker #fechaCreacionPicker></mat-datepicker>
+            
+            
+          
+            
         </mat-form-field>
     </div>
-    <!-- Corregido: Utiliza 'productForm.value' en lugar de 'productForm.values' -->
-    <pre>{{ ['productForm'].values | json }}</pre>
+
+   
+    <pre>{{ productForm.value | json }}</pre>
 </form>
