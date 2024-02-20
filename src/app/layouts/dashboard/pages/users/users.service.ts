@@ -6,8 +6,8 @@ import { User } from './models';
 const ROLES_DB: string[] = ['ADMIN', 'USER'];
 
 let USERS_DB: User[] = [
-  {
-    id: 1,
+{
+    id:  1,
     firstName: 'Naruto',
     lastName: 'Uzumaki',
     email: 'naru@mail.com',

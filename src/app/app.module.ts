@@ -12,8 +12,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { RouterOutlet } from '@angular/router';
+import { SomeService } from '../app/components/SomeService';
 import { LoginComponent } from '../app/pages/login/login.component';
+import { ValidationErrorsPipe } from "../validation-errors.pipe";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ReactiveFormsComponent } from './components/reactive-forms/reactive-forms.component';
@@ -25,7 +28,7 @@ registerLocaleData(es);
 registerLocaleData(esAR);
 
 @NgModule({
-  declarations: [AppComponent,  ReactiveFormsComponent, TemplateDrivenFormsComponent, LoginComponent],
+  declarations: [AppComponent,  ReactiveFormsComponent, TemplateDrivenFormsComponent, LoginComponent,ValidationErrorsPipe],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -46,10 +49,12 @@ registerLocaleData(esAR);
     MatDatepicker,
     MatDatepickerToggleIcon,
     MatCard,
+
     
 
   ],
   providers: [
+  SomeService, 
     {
       provide: LOCALE_ID,
       useValue: 'es-AR',
@@ -68,6 +73,7 @@ registerLocaleData(esAR);
       provide: 'API_URL',
       useValue: 'http://localhost:5000/',
     },
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent],
 })

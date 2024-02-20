@@ -2,43 +2,35 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Observable, map, tap } from 'rxjs';
+import { Observable, catchError, map, tap } from 'rxjs';
+import { throwError } from 'rxjs/internal/observable/throwError';
 import { environment } from '../../../environments/environment';
 import { AlertsService } from '../../core/services/alerts.service';
-import { LoadingService } from '../../core/services/loading.service';
 import { AuthActions } from '../../core/store/auth/actions/index';
 import { User } from '../dashboard/pages/users/models';
+
 
 interface LoginData {
   email: null | string;
   password: null | string;
 }
 
-const MOCK_USER = {
-  id: 48,
-  email: 'test@mail.com',
-  firstName: 'FAKENAME',
-  lastName: 'FAKELASTNAME',
-  password: '123456',
-  role: 'ADMIN',
-};
-
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  authUser(authUser: any) {
-      throw new Error('Method not implemented.');
+  authUser(authUser: any): void {
+    throw new Error('Method not implemented.');
   }
+
   constructor(
     private router: Router,
     private alertsService: AlertsService,
-    private loadingService: LoadingService,
     private httpClient: HttpClient,
     private store: Store
   ) {}
 
   private setAuthUser(user: User): void {
     this.store.dispatch(AuthActions.setAuthUser({ user }));
-    localStorage.setItem('token', user.token);
+    localStorage.setItem('token', user.token || ''); 
   }
 
   login(data: LoginData): Observable<User[]> {
@@ -54,6 +46,10 @@ export class AuthService {
           } else {
             this.alertsService.showError('Email o password invalidos');
           }
+        }),
+        catchError((error) => {
+          console.error('Error during login:', error);
+                   return throwError(error);
         })
       );
   }
@@ -64,11 +60,16 @@ export class AuthService {
     localStorage.removeItem('token');
   }
 
-  verifyToken() {
+  verifyToken(): Observable<boolean> {
+    const storedToken = localStorage.getItem('token');
+
+    if (!storedToken) {
+      this.store.dispatch(AuthActions.logout());
+      return of(false);
+    }
+
     return this.httpClient
-      .get<User[]>(
-        `${environment.apiURL}/users?token=${localStorage.getItem('token')}`
-      )
+      .get<User[]>(`${environment.apiURL}/users?token=${storedToken}`)
       .pipe(
         map((response) => {
           if (response.length) {
@@ -79,7 +80,17 @@ export class AuthService {
             localStorage.removeItem('token');
             return false;
           }
+        }),
+        catchError((error) => {
+          console.error('Error during token verification:', error);
+         
+          return throwError(error);
         })
       );
   }
 }
+
+function of(arg0: boolean): Observable<boolean> {
+  throw new Error('Function not implemented.');
+}
+

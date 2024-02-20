@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { SomeService } from '../SomeService';
+
 
 @Component({
   selector: 'app-template-driven-forms',
   templateUrl: './template-driven-forms.component.html',
-  styleUrl: './template-driven-forms.component.scss'
+  styleUrls: ['./template-driven-forms.component.scss'] 
 })
 export class TemplateDrivenFormsComponent {
-
+constructor(private someService: SomeService) {
+    // ...
+  }
 }

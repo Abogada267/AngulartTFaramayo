@@ -1,65 +1,44 @@
-import { TestBed } from '@angular/core/testing';
-import { Validators } from '@angular/forms';
-import { MockProvider } from 'ng-mocks';
-import { SharedModule } from '../../../../shared/shared.module';
-import { AuthService } from '../../auth.service';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../../../app/layouts/auth/auth.service';
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [LoginComponent],
-      imports: [SharedModule],
-      providers: [MockProvider(AuthService)],
+      imports: [ReactiveFormsModule],
+      providers: [
+        {
+          provide: AuthService,
+          useValue: jasmine.createSpyObj('AuthService', ['yourAuthServiceMethods']),
+        },
+      ],
     });
 
-    component = TestBed.createComponent(LoginComponent).componentInstance;
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
   });
 
-  it('El LoginComponent debe instanciarse correctamente', () => {
+  it('should create LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('El email y la contrasena deben ser controles requeridos', () => {
-    expect(
-      component['loginForm'].get('password')?.hasValidator(Validators.required)
-    ).toBeTrue();
-    expect(
-      component['loginForm'].get('email')?.hasValidator(Validators.required)
-    ).toBeTrue();
+  it('should have email and password as required controls', () => {
+    const emailControl = component.loginForm.get('email');
+    const passwordControl = component.loginForm.get('password');
+
+    expect(emailControl?.hasValidator(Validators.required)).toBeTrue();
+    expect(passwordControl?.hasValidator(Validators.required)).toBeTrue();
   });
 
-  it('Si el formulario es invalido y al llamar submit este debe marcar sus campos como touched', () => {
-    component['loginForm'].patchValue({
-      email: '',
-      password: '',
-    });
+  it('if the form is invalid, calling submit should mark its fields as touched', () => {
+    component.onSubmit();
 
-    expect(component['loginForm'].invalid).toBeTrue();
-
-    const spyOnMarkAllAsTouched = spyOn(
-      component['loginForm'],
-      'markAllAsTouched'
-    );
-
-    component['onSubmit']();
-
-    expect(spyOnMarkAllAsTouched).toHaveBeenCalled();
+        expect(component.loginForm.get('email')?.touched).toBeTrue();
+    expect(component.loginForm.get('password')?.touched).toBeTrue();
   });
 });
-
-function beforeEach(arg0: () => void) {
-  throw new Error('Function not implemented.');
-}
-
-
-function expect(component: LoginComponent) {
-  throw new Error('Function not implemented.');
-}
-
-
-function spyOn(arg0: any, arg1: string) {
-  throw new Error('Function not implemented.');
-}
