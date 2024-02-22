@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -14,7 +14,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
-import { ProductsService } from './products.service'; // Import your service
+import { ProductsService } from './products.service';
 
 @NgModule({
   declarations: [ProductsComponent],
@@ -34,6 +34,7 @@ import { ProductsService } from './products.service'; // Import your service
     ProductsRoutingModule,
     MatTableModule,
     MatFormFieldModule,
+    FormsModule ,
   ],
   providers: [
     ProductsService, 
