@@ -1,11 +1,12 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "types":["sweetalert2", "jest","mocha"],
+    "types": ["sweetalert2"],
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "noImplicitAny": true,
+    "skipDefaultLibCheck": false,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
@@ -17,16 +18,15 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "ES2022",
-    "module": "ES2022",
+    "target": "es2015",
+    "module": "CommonJS",  
     "useDefineForClassFields": false,
     "lib": [
-      "ES2022",
+      "es2015",
       "dom"
     ]
   },
   "angularCompilerOptions": {
-     "aot": false,
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,

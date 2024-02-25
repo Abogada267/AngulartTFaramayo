@@ -33,7 +33,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { TemplateDrivenFormsComponent } from './components/template-driven-forms/template-driven-forms.component';
 import { WarningComponent } from './components/warning/warning.component';
 import { appReducers } from './core/store';
-import { Rutas } from './router/rutas';
+import { Routes } from './router/rutas';
 import { SharedModule } from './shared/shared.module';
 import { appStoreProviders } from './state/videoclub.store';
 
@@ -72,7 +72,7 @@ registerLocaleData(esAR);
     MatProgressSpinnerModule,
     MatCardModule,
     SharedModule,
-    RouterModule.forRoot(Rutas.getRoutes()),
+    RouterModule.forRoot(Routes.getRoutes()),
     StoreModule.forRoot(appReducers, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),
