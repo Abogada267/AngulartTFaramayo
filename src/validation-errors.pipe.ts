@@ -4,9 +4,17 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'validationErrors'
 })
 export class ValidationErrorsPipe implements PipeTransform {
-  transform(errors: any): string[] {
+  transform(errors: any): string {
   
-  return Object.keys(errors).map(key => `${key}: ${errors[key]}`);
+    if (!errors) {
+      return '';
     }
+
+   
+    const errorMessages = Object.values(errors).join(', ');
+
+    return errorMessages;
   }
+}
+
 

@@ -1,15 +1,15 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from 'redux';
-import { Pelicula } from 'src/app/interfaces/pelicula';
-import { ListadoService } from 'src/app/servicios/listado.service';
-import { Appstate } from 'src/app/state/videoclub.state';
-import { AppStore } from 'src/app/state/videoclub.store';
+import { ListadoService } from '../../core/services/listado.service';
+import { Pelicula } from '../../interfaces/pelicula';
+import { Appstate } from '../../state/videoclub.state';
+import { AppStore } from '../../state/videoclub.store';
 
 @Component({
   selector: 'app-alta',
   templateUrl: './alta.component.html',
-  styleUrls: ['./alta.component.css']
+  styleUrls: ['./alta.component.scss']
 })
 export class AltaComponent implements OnInit {
 

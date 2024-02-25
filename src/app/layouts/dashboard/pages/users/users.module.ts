@@ -11,12 +11,11 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { RouterModule } from '@angular/router';
 import { UserFormComponent } from './components/user-form/user-form.component';
-import { UserDetailComponent } from './pages/user-detail/user-detail.component';
 import { UsersComponent } from './users.component';
 import { UsersService } from './users.service';
 
 @NgModule({
-  declarations: [UsersComponent, UserFormComponent, UserDetailComponent],
+  declarations: [UsersComponent, UserFormComponent],
   imports: [
     CommonModule,
     MatTableModule,

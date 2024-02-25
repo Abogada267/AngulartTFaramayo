@@ -1,14 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from 'redux';
-import { setLogin, setUser } from 'src/app/state/videoclub.actions';
-import { Appstate } from 'src/app/state/videoclub.state';
-import { AppStore } from 'src/app/state/videoclub.store';
+import { setLogin, setUser } from '../../../app/state/videoclub.actions';
+import { Appstate } from '../../../app/state/videoclub.state';
+import { AppStore } from '../../../app/state/videoclub.store';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css']
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
 

@@ -25,8 +25,9 @@ import { AppComponent } from '../../../../app.component';
     MatCardModule,
     BrowserAnimationsModule,
     BrowserModule,
+    FormsModule,
     MatCard,
-   FormsModule,
+
     
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark"
-    [ngClass]="{'bg-dark':!logueado, 'bg-danger':logueado && isAdmin, 'bg-success':logueado && !isAdmin }">
+[ngClass]="{'bg-dark':!logueado, 'bg-danger':logueado && isAdmin, 'bg-success':logueado && !isAdmin }">
     <a class="navbar-brand">
         <span *ngIf="!logueado">
             Sign

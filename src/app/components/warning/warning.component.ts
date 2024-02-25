@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-warning',
   templateUrl: './warning.component.html',
-  styleUrls: ['./warning.component.css']
+  styleUrls: ['./warning.component.scss']
 })
-export class WarningComponent implements OnInit {
+export class WarningComponent  {
 
   descripcion:string = ''
 

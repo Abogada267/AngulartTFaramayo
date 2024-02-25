@@ -2,15 +2,15 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatCard, MatCardModule } from '@angular/material/card';
-import { MatDatepicker } from '@angular/material/datepicker';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterModule } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { HomeComponent } from './pages/Home/home.component';
 import { CategoriesModule } from './pages/categories/categories.module';
@@ -21,11 +21,8 @@ import { UserDetailComponent } from './pages/users/pages/user-detail/user-detail
 import { UsersComponent } from './pages/users/users.component';
 import { UsersModule } from './pages/users/users.module';
 
-
-
-
 @NgModule({
-  declarations: [DashboardComponent],
+  declarations: [DashboardComponent, HomeComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -41,14 +38,11 @@ import { UsersModule } from './pages/users/users.module';
     MatListModule,
     MatFormFieldModule,
     MatInputModule,
-   MatCard,
-    MatDatepicker,
     MatCardModule,
-    MatIcon,
+    MatDatepickerModule,
     FormsModule,
-
-        
-     RouterModule.forChild([
+    RouterOutlet,
+    RouterModule.forChild([
       {
         path: 'home',
         component: HomeComponent,
@@ -58,23 +52,20 @@ import { UsersModule } from './pages/users/users.module';
         component: UsersComponent,
       },
       {
-       // /dashboard/products
         path: 'products',
         loadChildren: () =>
-          import ('./pages/products/products.module').then(
+          import('./pages/products/products.module').then(
             (m) => m.ProductsModule
           ),
-          },
-      {
-        path: 'user/:id',
-        component:UserDetailComponent,
       },
       {
-         
+        path: 'user/:id',
+        component: UserDetailComponent,
       },
     ]),
   ],
 })
 export class DashboardModule {}
+
 
 

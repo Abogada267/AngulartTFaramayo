@@ -1,18 +1,18 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from 'redux';
-import { Carrito } from 'src/app/interfaces/carrito';
-import { Pelicula } from 'src/app/interfaces/pelicula';
-import { CarritoService } from 'src/app/servicios/carrito.service';
-import { ListadoService } from 'src/app/servicios/listado.service';
-import { addCarrito } from 'src/app/state/videoclub.actions';
-import { Appstate } from 'src/app/state/videoclub.state';
-import { AppStore } from 'src/app/state/videoclub.store';
+import { CarritoService } from '../../../../src/app/core/services/carrito.service';
+import { ListadoService } from '../../../../src/app/core/services/listado.service';
+import { Carrito } from '../../../../src/app/interfaces/carrito';
+import { Pelicula } from '../../../../src/app/interfaces/pelicula';
+import { addCarrito } from '../../state/videoclub.actions';
+import { Appstate } from '../../state/videoclub.state';
+import { AppStore } from '../../state/videoclub.store';
 
 @Component({
   selector: 'app-listado',
   templateUrl: './listado.component.html',
-  styleUrls: ['./listado.component.css']
+  styleUrls: ['./listado.component.scss']
 })
 export class ListadoComponent implements OnInit {
 

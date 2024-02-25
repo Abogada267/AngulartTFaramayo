@@ -34,7 +34,7 @@ import { ProductsService } from './products.service';
     ProductsRoutingModule,
     MatTableModule,
     MatFormFieldModule,
-    FormsModule ,
+    FormsModule,
   ],
   providers: [
     ProductsService, 

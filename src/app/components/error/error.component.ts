@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
-  styleUrls: ['./error.component.css']
+  styleUrls: ['./error.component.scss']
 })
 export class ErrorComponent implements OnInit {
 
@@ -13,7 +13,7 @@ export class ErrorComponent implements OnInit {
   constructor(private router:Router, activatedRoute : ActivatedRoute) {
     activatedRoute.params.subscribe( params => {
       this.descripcion = params['descripcion']
-      //this.id = params.id
+      
     })    
   }
   refTimeOut :any = null

@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
             
             this.usuarioService.guardarUsuario(this.register)
               .subscribe((usuario: Usuario) => {
-                //console.log(usuario)
+                
                 this.router.navigateByUrl('/info/Usuario registrado')
               })
           }

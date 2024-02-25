@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DashboardModule } from '../dashboard/dashboard.module';
 
 @Component({
   selector: 'app-dashboard',
@@ -23,3 +24,4 @@ export class DashboardComponent {
     });
   }
 }
+export { DashboardModule };

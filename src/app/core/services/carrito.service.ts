@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Store } from 'redux';
 import { catchError } from 'rxjs';
-import { Carrito } from '../interfaces/carrito';
-import { Appstate } from '../state/videoclub.state';
-import { AppStore } from '../state/videoclub.store';
+import { Appstate } from '../../../../src/app/state/videoclub.state';
+import { AppStore } from '../../../../src/app/state/videoclub.store';
+import { Carrito } from '../../../app/components/carrito/carrito.component';
 import { UtilService } from './util.service';
 
 @Injectable({

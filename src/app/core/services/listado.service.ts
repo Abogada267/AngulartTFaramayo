@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs';
 
-import { Pelicula } from '../interfaces/pelicula';
+import { Pelicula } from '../../interfaces/pelicula';
 import { UtilService } from './util.service';
 
 @Injectable({

@@ -1,15 +1,15 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from 'redux';
-import { Carrito } from 'src/app/interfaces/carrito';
-import { CarritoService } from 'src/app/servicios/carrito.service';
-import { Appstate } from 'src/app/state/videoclub.state';
-import { AppStore } from 'src/app/state/videoclub.store';
+import { CarritoService } from '../../../app/core/services/carrito.service';
+import { Appstate } from '../../../app/state/videoclub.state';
+import { AppStore } from '../../../app/state/videoclub.store';
+import { Carrito } from '../carrito/carrito.component';
 
 @Component({
   selector: 'app-alquiler',
   templateUrl: './alquiler.component.html',
-  styleUrls: ['./alquiler.component.css']
+  styleUrls: ['./alquiler.components.scss']
 })
 export class AlquilerComponent implements OnInit {
 
